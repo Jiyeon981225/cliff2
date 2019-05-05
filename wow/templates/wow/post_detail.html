@@ -1,0 +1,25 @@
+{% extends 'wow/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="post" >
+    {% if post.pub_date %}
+    <div class="date">
+        {{ post.pub_date }}
+    </div>
+    {% endif %}
+    <h1>{{post.title}}</h1>
+    <p> 카테고리:{{post.category }}</p>
+    <p> {{ post.body|linebreaksbr }}</p>
+    {% if post.image %}
+    <img src="{{ post.image.url }}" height=200><br>
+    {% endif %}
+    <a href="{% url 'post_edit' index=post.pk %}">수정하기</a>
+    <a href="{% url 'post_remove' pk=post.pk %}">삭제</a>
+    <hr>
+    <a href="{% url 'home' %}">홈으로</a>
+</div>
+
+{% endblock %}

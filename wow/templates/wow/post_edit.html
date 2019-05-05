@@ -1,0 +1,15 @@
+{% extends 'wow/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1> post edit </h1>
+<form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    {% for value, displayable in form.catetory.choices %}
+    <option value="{{value}}">{{displayable}}</option>
+    {% endfor %}
+    <button type="submit" class"save btn btn-default">Save</button>
+</form>
+
+{% endblock %}

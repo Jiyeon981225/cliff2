@@ -1,0 +1,40 @@
+.carousel-item:nth-child(1){
+    background-image: url(../images/IMG_1714.jpg);
+}
+.carousel-item:nth-child(2){
+    background-image: url(../images/IMG_1595.jpg);
+}
+.carousel-item:nth-child(3){
+    background-image: url(../images/IMG_1469.jpg);
+}
+.carousel-item:nth-child(4){
+    background-image: url(../images/IMG_0473.jpg);
+}
+
+.carousel-item{
+    height:90vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size : cover;
+}
+
+.clubs{
+    padding : 120px 0;
+    text-align: center;
+}
+
+.club_title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+}
+
+.club_category{
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.img1{
+    background-color:#D9E5FF;
+}

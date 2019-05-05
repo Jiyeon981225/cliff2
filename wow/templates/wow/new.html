@@ -1,0 +1,13 @@
+{% extends 'wow/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h1>사진 자랑 ㄱㄱ</h1>
+
+<form method='POST' class="post-form" enctype="multipart/frm-data"> {% csrf_token %}
+    {{form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}
