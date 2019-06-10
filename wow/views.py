@@ -9,10 +9,7 @@ from django.shortcuts import get_object_or_404
 
 def home(request) :
     posts = Post.objects.all
-    return render(request, 'wow/home.html', {'posts_list': posts})
-
-
-def new(request) :
+    
     if request.method =='POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid() :
@@ -24,10 +21,13 @@ def new(request) :
             post.save()
             return redirect('home')
     else:
-        form = PostForm()
-        
-    return render(request, 'wow/new.html', {'form': form})
+        form = PostForm()    
     
+    
+    return render(request, 'wow/home.html', {'posts_list': posts, 'form':form})
+
+
+
     
 def post_detail(request,index):
     post= get_object_or_404(Post, pk=index)
@@ -58,5 +58,21 @@ def post_remove(request, pk) :
 
     
     
+def java(request):
+    posts = Post.objects.all
+    
+    if request.method =='POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid() :
+            post=form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.writer = request.user
+            catetory = request.POST.getlist('category')
+            post.save()
+            return redirect('home')
+    else:
+        form = PostForm()    
     
     
+    return render(request, 'wow/js.html', {'posts_list': posts, 'form':form})

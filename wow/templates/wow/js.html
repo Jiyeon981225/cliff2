@@ -1,0 +1,116 @@
+{% extends 'wow/base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="jquery.datetimepicker.min.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="jquery.datetimepicker.js"></script>
+<script  src="../../Jquery/prettify.js"></script>
+
+<!-- css -->
+<link rel="stylesheet" href="/path/to/kronos.css"></link>
+<!-- js -->
+<script src="/path/to/jquery.min.js"></script>
+<script src="/path/to/kronos.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'wow/css/style.css' %}">
+
+<style>
+  	#DragMe {
+	width: 150px;
+	height:150px;
+	padding:0.5em;
+	background:orange;
+	text-align:center;
+	}
+  
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+    
+    <h1>we are learning JS</h1>
+    <ol class>
+        <li>멋사</li>
+        <li>아기사자들 화이팅</li>
+        <li>화이또!!!</li>
+    </ol>
+    
+    <input type="button" value="night" onclick='
+    document.querySelector("body").style.backgroundColor="black";
+    document.querySelector("body").style.color="white";
+    '>
+    <input type="button" value="day" onclick='
+    document.querySelector("body").style.backgroundColor="white";
+    document.querySelector("body").style.color="black";
+    '>
+    
+    <br><br>
+    버튼 하나로 통일!!<br><br>
+    
+    <input id='day_night' type="button" value="night" onclick="nightDayHandler(this)">
+    
+<br><br>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>사진 자랑 ㄱㄱ</h1>
+
+        <form method='POST' class="post-form" enctype="multipart/frm-data"> {% csrf_token %}
+            {{form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+      </div>
+
+    </div>
+ 
+<input type="text" id="kronos">
+<script type='text/javascript' src='{% static "wow/js/test.js"%}'></script>
+
+
+</body>
+{% endblock %}
